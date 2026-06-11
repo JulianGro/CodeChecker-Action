@@ -26,6 +26,13 @@ if [[ "$IN_CTU" == "true" ]]; then
   CTU_FLAGS="--ctu --ctu-ast-mode load-from-pch"
   echo "::notice title=Cross Translation Unit analyis::CTU has been enabled, the analysis might take a long time!"
 fi
+
+if [[ -z "$IN_JOBS" ]]; then
+  JOBS_FLAG=$(nproc)
+else
+  JOBS_FLAG=$IN_JOBS
+  echo "Number of jobs set to \"$IN_JOBS\"!"
+fi
 echo "::endgroup::"
 
 "$CODECHECKER_PATH"/CodeChecker analyzers \
@@ -36,7 +43,7 @@ echo "::group::Executing Static Analysis"
 "$CODECHECKER_PATH"/CodeChecker analyze \
     "$COMPILATION_DATABASE" \
     --output "$OUTPUT_DIR" \
-    --jobs $(nproc) \
+    --jobs $JOBS_FLAG \
     $CONFIG_FLAG_1 $CONFIG_FLAG_2 \
     $CTU_FLAGS
 EXIT_CODE=$?

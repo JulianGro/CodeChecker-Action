@@ -24,7 +24,7 @@ inputs:
     default: 'latest'
 
   config:
-    description: 'The CodeChecker configuration JSON that contains for each CodeChecker action (analyze, parse, ...) the list of flags that should be appended to the invocation of the command.'
+    description: 'The CodeChecker configuration JSON or YAML that contains for each CodeChecker action (analyze, parse, ...) the list of flags that should be appended to the invocation of the command.'
     required: false
 
   logfile:

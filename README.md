@@ -214,7 +214,7 @@ runs:
         store-username: ${{ secrets.CODECHECKER_STORE_USER }}
         store-password: ${{ secrets.CODECHECKER_STORE_PASSWORD }}
         # Keep the names for 'store' and 'diff' in sync, or auto-generated!
-        # diff-run-name: "custom run name to store with"
+        # store-run-name: "custom run name to store with"
 
         diff: ${{ github.event_name == 'pull_request' }}
         diff-url: 'http://example.com:8001/MyProject'

@@ -152,9 +152,6 @@ outputs:
     description: 'Whether storing the analysis results to the configured server was successful. Useful for breaking the build in a later step if the store action is deemed mandatory.'
     value: ${{ steps.store.outputs.SUCCESS }}
 
-env:
-  CC_PASS_FILE: /.codechecker.passwords.json
-
 runs:
   using: "composite"
   steps:

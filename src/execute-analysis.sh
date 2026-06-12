@@ -58,7 +58,7 @@ echo "::group::Executing Static Analysis"
     --jobs $JOBS_FLAG \
     $CONFIG_FLAG_1 $CONFIG_FLAG_2 \
     $CTU_FLAGS \
-    $ANALYZER_CONFIG_FLAG_1 ANALYZER_CONFIG_FLAG_2 \
+    $ANALYZER_CONFIG_FLAG_1 $ANALYZER_CONFIG_FLAG_2 \
     $SKIPFILE_FLAG_1 $SKIPFILE_FLAG_2
 EXIT_CODE=$?
 echo "::endgroup::"

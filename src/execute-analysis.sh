@@ -41,7 +41,7 @@ if [[ ! -z "$IN_ANALYZER_CONFIG" ]]; then
 fi
 
 if [[ ! -z "$IN_SKIPFILE" ]]; then
-  SKIPFILE_FLAG_1="--skipfile"
+  SKIPFILE_FLAG_1="--skip"
   SKIPFILE_FLAG_2=$IN_SKIPFILE
   echo "Using skipfile: \"$IN_SKIPFILE\"!"
 fi

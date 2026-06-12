@@ -19,6 +19,7 @@ if [[ ! -z "$IN_STORE_USERNAME" && ! -z "$IN_STORE_PASSWORD" ]]; then
     }
 EOF
   chmod 0600 ~/.codechecker.passwords.json
+  echo "Saved credentials to $HOME/.codechecker.passwords.json"
 fi
 
 if [[ ! -z "$IN_STORE_RUN_NAME" && "$IN_STORE_RUN_NAME" != "__DEFAULT__" ]]; then

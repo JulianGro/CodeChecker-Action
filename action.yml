@@ -47,7 +47,10 @@ inputs:
     required: true
     default: 'true'
   analyzer-jobs:
-    descritption: 'Limits the number of threads used by the analyzer to avoid running out of memory.'
+    descritption: 'Limits the number of threads used by the analyzer to avoid running out of memory. Can be overridden for individual analyzers using the CodeChecker config file.'
+    required: false
+  analyzer-config:
+    description: "Same as CodeChecker's `--analyzer-config`. E.g.: `cppcheck:cc-verbatim-args-file=cppcheck_args.txt`"
     required: false
 
   report-converter:
@@ -210,6 +213,7 @@ runs:
         IN_CONFIGFILE: ${{ inputs.config }}
         IN_CTU: ${{ inputs.ctu }}
         IN_JOBS: ${{ inputs.analyzer-jobs }}
+        IN_ANALYZER_CONFIG: ${{ inputs.analyzer-config }}
         IN_IGNORE_CRASHES: ${{ inputs.ignore-analyze-crashes }}
         IN_OUTPUT_DIR: ${{ inputs.analyze-output }}
       shell: bash

@@ -33,6 +33,12 @@ else
   JOBS_FLAG=$IN_JOBS
   echo "Number of jobs set to \"$IN_JOBS\"!"
 fi
+
+if [[ ! -z "$IN_ANALYZER_CONFIG" ]]; then
+  ANALYZER_CONFIG_FLAG_1="--analyzer-config"
+  ANALYZER_CONFIG_FLAG_2=$IN_ANALYZER_CONFIG
+  echo "Using analyzer-config: \"$IN_ANALYZER_CONFIG\"!"
+fi
 echo "::endgroup::"
 
 "$CODECHECKER_PATH"/CodeChecker analyzers \
@@ -45,7 +51,8 @@ echo "::group::Executing Static Analysis"
     --output "$OUTPUT_DIR" \
     --jobs $JOBS_FLAG \
     $CONFIG_FLAG_1 $CONFIG_FLAG_2 \
-    $CTU_FLAGS
+    $CTU_FLAGS \
+    $ANALYZER_CONFIG_FLAG_1 ANALYZER_CONFIG_FLAG_2
 EXIT_CODE=$?
 echo "::endgroup::"
 

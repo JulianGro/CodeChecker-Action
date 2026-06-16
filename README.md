@@ -53,7 +53,7 @@ job:
         cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
     # Run the analysis
-    - uses: whisperity/codechecker-analysis-action@v1
+    - uses: whisperity/codechecker-action@v1
       id: codechecker
       with:
         logfile: ${{ github.workspace }}/Build/compile_commands.json
@@ -89,7 +89,7 @@ job:
         cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=OFF
 
     # Run the analysis
-    - uses: whisperity/codechecker-analysis-action@v1
+    - uses: whisperity/codechecker-action@v1
       id: codechecker
       with:
         build-command: "cd ${{ github.workspace }}/Build; cmake --build ."
@@ -124,7 +124,7 @@ job:
         cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=OFF
 
     # Run the analysis
-    - uses: whisperity/codechecker-analysis-action@v1
+    - uses: whisperity/codechecker-action@v1
       id: codechecker
       with:
         build-command: "cd ${{ github.workspace }}/Build; cmake --build ."
@@ -166,7 +166,7 @@ job:
         cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=OFF
 
     # Run the analysis
-    - uses: whisperity/codechecker-analysis-action@v1
+    - uses: whisperity/codechecker-action@v1
       id: codechecker
       with:
         build-command: "cd ${{ github.workspace }}/Build; cmake --build ."
@@ -204,7 +204,7 @@ runs:
         cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=OFF
 
     # Run the analysis
-    - uses: whisperity/codechecker-analysis-action@v1
+    - uses: whisperity/codechecker-action@v1
       id: codechecker
       with:
         build-command: "cd ${{ github.workspace }}/Build; cmake --build ."
@@ -272,7 +272,7 @@ job:
         pylint -f json --exit-zero myproject > pylint_reports.json
 
     # Run the conversion
-    - uses: whisperity/codechecker-analysis-action@v1
+    - uses: whisperity/codechecker-action@v1
       id: codechecker
       with:
         report-converter: true

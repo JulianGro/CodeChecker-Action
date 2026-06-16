@@ -32,6 +32,12 @@ if [[ ! -z "$IN_ANALYZER_CONFIG" ]]; then
   ANALYZER_CONFIG_FLAG_2=$IN_ANALYZER_CONFIG
   echo "Using analyzer-config: \"$IN_ANALYZER_CONFIG\"!"
 fi
+
+if [[ ! -z "$IN_SKIPFILE" ]]; then
+  SKIPFILE_FLAG_1="--skip"
+  SKIPFILE_FLAG_2=$IN_SKIPFILE
+  echo "Using skipfile: \"$IN_SKIPFILE\"!"
+fi
 echo "::endgroup::"
 
 "$CODECHECKER_PATH"/CodeChecker analyzers \
@@ -45,7 +51,8 @@ echo "::group::Executing Static Analysis"
     --jobs $(nproc) \
     $CONFIG_FLAG_1 $CONFIG_FLAG_2 \
     $CTU_FLAGS \
-    $ANALYZER_CONFIG_FLAG_1 $ANALYZER_CONFIG_FLAG_2
+    $ANALYZER_CONFIG_FLAG_1 $ANALYZER_CONFIG_FLAG_2 \
+    $SKIPFILE_FLAG_1 $SKIPFILE_FLAG_2
 EXIT_CODE=$?
 echo "::endgroup::"
 

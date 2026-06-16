@@ -49,6 +49,9 @@ inputs:
   analyzer-config:
     description: "Same as CodeChecker's `--analyzer-config`. E.g.: `cppcheck:cc-verbatim-args-file=cppcheck_args.txt`"
     required: false
+  skipfile:
+    description: "A file contianing which files to skip during analysis. Same as CodeChecker's `--skipfile` argument."
+    required: false
 
   report-converter:
     description: 'Whether to perform report conversion from analyses executed by third-party analysers instead of driving the analysis via CodeChecker directly.'
@@ -210,6 +213,7 @@ runs:
         IN_CONFIGFILE: ${{ inputs.config }}
         IN_CTU: ${{ inputs.ctu }}
         IN_ANALYZER_CONFIG: ${{ inputs.analyzer-config }}
+        IN_SKIPFILE: ${{ inputs.skipfile }}
         IN_IGNORE_CRASHES: ${{ inputs.ignore-analyze-crashes }}
         IN_OUTPUT_DIR: ${{ inputs.analyze-output }}
       shell: bash

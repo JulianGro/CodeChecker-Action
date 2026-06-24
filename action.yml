@@ -10,6 +10,7 @@ inputs:
     description: 'Whether to download, check out, and build a CodeChecker package manually in the CI.'
     required: true
     default: 'false'
+    type: boolean
   repository:
     description: 'The CodeChecker repository to check out and build from.'
     required: true
@@ -42,10 +43,12 @@ inputs:
     description: 'Whether to enable Cross Translation Unit (CTU) analysis in the Clang Static Analyzer.'
     required: true
     default: 'false'
+    type: boolean
   ignore-analyze-crashes:
     description: 'If set to "true", the "analyze" action will ALWAYS pass, and not report a failure if some analysis jobs fail to execute due to internal crashes in the Clang analysers.'
     required: true
     default: 'true'
+    type: boolean
   analyzer-config:
     description: "Same as CodeChecker's `--analyzer-config`. E.g.: `cppcheck:cc-verbatim-args-file=cppcheck_args.txt`"
     required: false
@@ -68,6 +71,7 @@ inputs:
     description: 'Whether to enable calculating the different of the current analysis results against a run stored on a CodeChecker server. If enabled, other flags, such as "diff-url" must also be set.'
     required: true
     default: 'false'
+    type: boolean
   diff-url:
     description: 'The CodeChecker product URL (usually in the format of http://example.com/ProductName) where the diff should connect to. Mandatory if "diff" is true.'
     required: false
@@ -86,6 +90,7 @@ inputs:
     description: 'Whether to enable storing the results to a CodeChecker server. If enabled, other flags, such as "store-url" must also be set.'
     required: true
     default: 'false'
+    type: boolean
   store-url:
     description: 'The CodeChecker product URL (usually in the format of http://example.com/ProductName) where the store should connect to. Mandatory if "store" is true.'
     required: false
